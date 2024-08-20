@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="">
+
+  <title> NDScan </title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/online-security.png') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/online-security.png') }}">
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <!-- fonts style -->
+   
+  <!-- font awesome style -->
+  <link rel="stylesheet"  href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+</head>
+
+<body>
+    
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{{ url_for('static', filename='images/hero-bg.png') }}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+
+
+          <a class="navbar-brand" href="index.html" class="logo">
+            <img src="/static/images/online-security.png" alt="Icone Flaticon" class="flaticon-ico" style="width: 50px;">            <span>
+              NDScan
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html"> Accueil <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"> Nos Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="service.html">A propos de Nous</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="why.html">Pourquoi NDScan ?</a>
+              </li>
+              
+              <li class="nav-item">
+               <a class="nav-link" href="{{url_for('main.login')}}"> <i class="fa fa-user" aria-hidden="true"></i>Connexion</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Bienvenue sur NDScan
+                    </h1>
+                    <h2>
+                      Votre Solution Ultime pour la Sécurisation des Sites Web!
+                    </h2>
+                    <p>
+                        Assurez la sécurité de votre site avec notre service d'analyse de vulnérabilités. Détectez et
+                        corrigez les failles avant qu'elles ne soient exploitées par des cybercriminels.                    </p>
+                        <form id="scanForm">
+                            <input type="text" id="url" name="url" name="url" placeholder="Entrer l'URL de votre site"
+                                required>
+                            <button type="submit">Scanner →</button>
+                        </form>
+                        <div id="loader" class="mt-3" style="display:none;">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Scan en cours...</span>
+                            </div>
+                            <p>Scan en cours...</p>
+                        </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{{ url_for('static', filename='images/dd.webp') }}" alt="NDScan Logo">
+                  </div>
+                </div>
+            </div>
+          </div>
+          
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>
+            Nos <span>Services</span>
+          </h2>
+          <p>
+            Découvrez les différentes fonctionnalités de notre plateforme qui permettront la sécurisation des sites web.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/s1.png') }}" alt="NDScan Logo">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Scan Automatisé et Analyse de Vulnérabilité
+                </h5>
+                <p>
+                  Le scan automatisé et analyse des vulnérabilités est une fonctionnalité fondamentale pour identifier et corriger les failles ....
+                </p>
+                <a href="scan-automatisé.html">
+                  Voir Plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/s2.png') }}" alt="NDScan Logo">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Rapports d'Analyse et Tableau de Bord
+                </h5>
+                <p>
+                  Les rapports d'analyse et le tableau de bord sont des outils essentiels pour suivre l'évolution de la sécurité de votre site web grâce....
+                </p>
+                <a href="rapports-analyse.html">
+                  Voir Plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/s3.png') }}" alt="NDScan Logo">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Programmer des Analyses de Site
+                </h5>
+                <p>
+                  Planifiez des scans réguliers pour des dates ultérieures de votre site web pour garantir une surveillance continue et assurée de la sécurité.
+                </p>
+                <a href="programmer-analyses.html">
+                  Voir Plus
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/s1.png') }}" alt="NDScan Logo">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Voir Scans Programmés
+                </h5>
+                <p>
+                  Consultez et gérez tous les scans programmés pour votre site web, visualisez les résultats et ajustez les paramètres selon vos besoins.
+                </p>
+                <a href="voir-scans.html">
+                  Voir Plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/s2.png') }}" alt="NDScan Logo">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Forum de Discussion/Commentaire
+                </h5>
+                <p>
+                  Partagez des idées, posez des questions et trouvez des solutions sur notre forum collaboratif dédié à la sécurité web.
+                </p>
+                <a href="forum.html">
+                  Voir Plus
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{{ url_for('static', filename='images/s3.png') }}" alt="NDScan Logo">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Gestion des Permissions et Authentification Avancée
+                </h5>
+                <p>
+                  Contrôlez l'accès à votre site web avec des rôles définis et des méthodes d'authentification robustes ...
+                </p>
+                <a href="gestion-permissions.html">
+                  Voir Plus
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="">
+            Voir Tout
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                À Propos de <span>Nous</span>
+            </h2>
+            <p>
+              NDScan est dédié à offrir des solutions de sécurité web innovantes pour protéger vos sites contre les menaces en constante évolution.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{{ url_for('static', filename='images/n.png') }}" alt="NDScan Logo">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <h3>
+                        Nous Sommes NDScan
+                    </h3>
+                    <p>
+                        Chez NDScan, notre mission est de fournir des solutions de sécurité web de pointe pour protéger vos sites contre les menaces croissantes du cyberespace. 
+                    </p>
+                    <p>
+                        Notre plateforme d'évaluation de vulnérabilités offre des scans automatisés robustes et une analyse approfondie pour identifier les failles de sécurité avant qu'elles ne soient exploitées. En utilisant des technologies de pointe, nous pouvons détecter et corriger les menaces de manière proactive, garantissant ainsi la sécurité continue de votre site web.
+                    </p>
+                    <p>
+                        Nous croyons fermement que la sécurité web ne doit pas être un luxe mais une nécessité accessible à tous. C'est pourquoi nous proposons des solutions flexibles adaptées à tous les types d'entreprises, des startups aux grandes entreprises. Rejoignez-nous pour faire de votre site web un bastion de sécurité contre les cybermenaces.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Pourquoi <span>NDScan ?</span>
+            </h2>
+        </div>
+        <div class="why_container">
+            <div class="row row-bg-1">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='images/w1.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Technologie Avancée
+                            </h5>
+                            <p>
+                                NDScan utilise les technologies les plus avancées en matière de cybersécurité pour offrir une protection complète. Nos algorithmes sophistiqués et nos outils de détection permettent d'identifier rapidement les vulnérabilités et de proposer des solutions efficaces.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='images/w2.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Protection Proactive
+                            </h5>
+                            <p>
+                                Notre plateforme offre des scans automatisés et des analyses en temps réel, garantissant une protection proactive contre les menaces. Vous pouvez ainsi rester un pas en avant des cybercriminels avec une bonne protection.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-bg-2 mt-4">
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='images/w3.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Facilité d'Utilisation
+                            </h5>
+                            <p>
+                                NDScan est conçu pour être intuitif et facile à utiliser, même pour ceux qui ne sont pas des experts en sécurité. Notre tableau de bord convivial vous permet de gérer et de surveiller facilement la sécurité de votre site web.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{{ url_for('static', filename='images/w4.png') }}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                Satisfaction Client
+                            </h5>
+                            <p>
+                                La satisfaction de nos clients est notre priorité absolue. Nous nous engageons à fournir un service de qualité supérieure et un support technique réactif pour répondre à toutes vos préoccupations en matière de sécurité.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <!-- end why section -->
+
+  
+
+
+ 
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Addresse
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Abomey-Calavi, Bidossèssi
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  +229 53544552
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  yantekouanelly@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              Nous nous engageons à fournir des services de qualité et à répondre aux besoins spécifiques de nos clients. Pour en savoir plus sur nos services et comment nous pouvons vous aider, n'hésitez pas à nous contacter.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Liens
+            </h4>
+            <div class="info_links">
+              <a class="active" href="index.html">
+                Accueil
+              </a>
+              <a class="" href="about.html">
+                Nos Services
+              </a>
+              <a class="" href="service.html">
+                A propos de Nous
+              </a>
+              <a class="" href="why.html">
+                Pourquoi NDScan ?
+              </a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Nous Contacter
+          </h4>
+          <form action="#">
+            <input type="text" name="email" placeholder="Entrer votre email" required>
+            
+          </form>
+          <button type="submit">
+            Souscrire
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+      <!-- Modale pour afficher les résultats -->
+      <div id="resultsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="resultsModalLabel">Résultats du scan</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div id="resultsContent"></div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end info section -->
+  
+
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- owl slider -->
+     <script src="{{ url_for('static', filename='js/custom.js') }}" type="text/javascript"></script>
+
+  <!-- custom js -->
+  <script src="{{ url_for('static', filename='js/custom.js') }}" type="text/javascript"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}" type="text/javascript"></script>
+  <script>
+    $(document).ready(function () {
+        $('#scanForm').submit(function (event) {
+            event.preventDefault();
+            $('#loader').show();
+            $('#resultsContent').empty();
+            $.ajax({
+                url: '/scan',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (data) {
+                    $('#loader').hide();
+                    var resultsHtml = '<ul class="list-group">';
+                    data.alerts.forEach(function (alert) {
+                        resultsHtml += '<li class="list-group-item">';
+                        resultsHtml += '<strong>Alerte:</strong> ' + alert.alert + '<br>';
+                        resultsHtml += '<strong>Risque:</strong> ' + alert.risk + '<br>';
+                        resultsHtml += '<strong>Description:</strong> ' + alert.desc + '<br>';
+                        resultsHtml += '<strong>URL:</strong> <a href="' + alert.url + '" target="_blank">' + alert.url + '</a><br>';
+                        resultsHtml += '<strong>Solution:</strong> ' + alert.solution + '</li><br>';
+                    });
+                    resultsHtml += '</ul>';
+                    $('#resultsContent').html(resultsHtml);
+                    $('#resultsModal').modal('show');
+                },
+                error: function () {
+                    $('#loader').hide();
+                    $('#resultsContent').html('<p>Erreur lors du scan.</p>');
+                    $('#resultsModal').modal('show');
+                }
+            });
+        });
+    });
+
+    function closeModal() {
+        $('#resultsModal').modal('hide');
+    }
+</script>
+  
+  
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

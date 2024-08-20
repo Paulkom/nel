@@ -1,0 +1,7 @@
+pip install flask-sqlalchemy flask-migrate
+pip install mysqlclient
+pip install Flask-Migrate
+
+pip install flask-login
+pip install --upgrade werkzeug
+pip install flask-login

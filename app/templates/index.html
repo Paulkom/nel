@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Website</title>
+    <!-- Lien vers le fichier CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Scan de site web</h1>
+        <form id="scanForm" class="mt-4">
+            <div class="form-group">
+                <label for="url">URL :</label>
+                <input type="text" id="url" name="url" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Lancer le scan</button>
+        </form>
+        <div id="loader" class="mt-3" style="display:none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Scan en cours...</span>
+            </div>
+            <p>Scan en cours...</p>
+        </div>
+
+        <!-- Modale pour afficher les résultats -->
+        <div id="resultsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="resultsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resultsModalLabel">Résultats du scan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="resultsContent"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts JavaScript de Bootstrap et jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#scanForm').submit(function(event) {
+                event.preventDefault();
+                $('#loader').show();
+                $('#resultsContent').empty();
+
+                $.ajax({
+                    url: '/scan',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        $('#loader').hide();
+                        var resultsHtml = '<ul class="list-group">';
+                        data.alerts.forEach(function(alert) {
+                            resultsHtml += '<li class="list-group-item">';
+                            resultsHtml += '<strong>Alerte:</strong> ' + alert.alert + '<br>';
+                            resultsHtml += '<strong>Risque:</strong> ' + alert.risk + '<br>';
+                            resultsHtml += '<strong>Description:</strong> ' + alert.desc + '<br>';
+                            resultsHtml += '<strong>URL:</strong> <a href="' + alert.url + '" target="_blank">' + alert.url + '</a><br>';
+                            resultsHtml += '<strong>Solution:</strong> ' + alert.solution + '</li><br>';
+                        });
+                        resultsHtml += '</ul>';
+                        $('#resultsContent').html(resultsHtml);
+                        $('#resultsModal').modal('show');
+                    },
+                    error: function() {
+                        $('#loader').hide();
+                        $('#resultsContent').html('<p>Erreur lors du scan.</p>');
+                        $('#resultsModal').modal('show');
+                    }
+                });
+            });
+        });
+
+        function closeModal() {
+            $('#resultsModal').modal('hide');
+        }
+    </script>
+</body>
+</html>

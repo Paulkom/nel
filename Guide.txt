@@ -1,0 +1,8 @@
+Télécharger zap 
+
+Démarrer l'application et prendre la clé offert par votre programme
+
+Accéder au dossier d'installation dans Programme et lancer la commande ci-dessous
+
+zap.bat -daemon -port 8086 -host localhost -config api.disablekey=true
+
